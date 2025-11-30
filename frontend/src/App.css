@@ -33,6 +33,202 @@
 
 .content {
   padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+}
+
+/* Page Card Styling - matches login card aesthetic */
+.page-card {
+  background: white;
+  padding: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+  margin: 20px 0;
+}
+
+/* Form Inputs - consistent with login inputs */
+.content input[type="text"],
+.content input[type="number"],
+.content input[type="date"],
+.content input[type="time"],
+.content textarea,
+.content select {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: inherit;
+}
+
+.content textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.content label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  color: #000000;
+}
+
+/* Buttons - consistent with login buttons */
+.content button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  background: #000;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+.content button:hover:not(:disabled) {
+  background: #1a52f9;
+}
+
+.content button:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+/* Inline buttons (like delete buttons) */
+.content button.inline-btn {
+  display: inline-block;
+  width: auto;
+  padding: 6px 12px;
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+/* Headings */
+.content h2 {
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.content h3 {
+  color: #000000;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 22px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 8px;
+}
+
+/* Lists */
+.content ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.content li {
+  margin: 12px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 2px solid #000;
+  border-radius: 6px;
+  line-height: 1.6;
+}
+
+.content li strong {
+  color: #000000;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.content li em {
+  color: #333;
+  display: block;
+  margin-top: 6px;
+}
+
+/* Messages */
+.content p {
+  color: #000000;
+  line-height: 1.6;
+}
+
+.content .success-message {
+  background: #ddffdd;
+  border: 2px solid green;
+  color: #006600;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.content .error-message {
+  background: #ffdddd;
+  border: 2px solid red;
+  color: #a70000;
+  padding: 10px;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+/* Quote box styling */
+.quote-box {
+  margin-top: 20px;
+  font-style: italic;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 2px solid #000;
+  border-radius: 8px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #000000;
+}
+
+.quote-box p {
+  margin: 0;
+}
+
+/* Form groups for better layout */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row > * {
+  flex: 1;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Horizontal rule in lists */
+.content li hr {
+  margin: 15px 0;
+  border: none;
+  border-top: 1px solid #ccc;
 }
 
 .login-container {
@@ -49,13 +245,6 @@
   padding: 8px;
 }
 
-.quote-box {
-  margin-top: 20px;
-  font-style: italic;
-  padding: 12px;
-  background: #9f9f9f;
-  border-radius: 8px;
-}
 
 ul {
   list-style: none;
