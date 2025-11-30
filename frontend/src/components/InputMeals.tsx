@@ -47,7 +47,7 @@ export default function InputMeals({ userId }: { userId: number }) {
   }, []);
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Add a Meal</h2>
 
       <input
@@ -70,17 +70,17 @@ export default function InputMeals({ userId }: { userId: number }) {
       />
 
       <button onClick={saveMeal}>Save Meal</button>
-      {msg && <p>{msg}</p>}
+      {msg && <p className="success-message">{msg}</p>}
 
       <h3>Your Saved Meals</h3>
       {meals.length === 0 ? (
-        <p>No meals saved yet.</p>
+        <p className="empty-state">No meals saved yet.</p>
       ) : (
         <ul>
           {meals.map((m, i) => (
             <li key={i}>
-              <strong>{m.name}</strong> — {m.calories} calories
-              <br />
+              <strong>{m.name}</strong>
+              <em>{m.calories} calories</em>
               <em>{m.description}</em>
             </li>
           ))}

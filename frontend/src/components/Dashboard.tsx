@@ -19,16 +19,18 @@ export default function Dashboard({ user }: { user: User }) {
   const reminders = data.filter(item => item.type === "REMINDER");
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Welcome, {user.username}!</h2>
 
       <h3>Your Meals</h3>
-      {meals.length === 0 ? <p>No meals saved.</p> : (
+      {meals.length === 0 ? (
+        <p className="empty-state">No meals saved.</p>
+      ) : (
         <ul>
           {meals.map((m, i) => (
             <li key={i}>
-              <strong>{m.name}</strong> — {m.calories} calories
-              <br />
+              <strong>{m.name}</strong>
+              <em>{m.calories} calories</em>
               <em>{m.description}</em>
             </li>
           ))}
@@ -36,14 +38,14 @@ export default function Dashboard({ user }: { user: User }) {
       )}
 
       <h3>Your Goals</h3>
-      {goals.length === 0 ? <p>No goals saved.</p> : (
+      {goals.length === 0 ? (
+        <p className="empty-state">No goals saved.</p>
+      ) : (
         <ul>
           {goals.map((g, i) => (
             <li key={i}>
-              <strong>{g.name}</strong> — {g.calories} calories
-              <br />
-              {g.timeframe}
-              <br />
+              <strong>{g.name}</strong>
+              <em>{g.calories} calories — {g.timeframe}</em>
               <em>{g.description}</em>
             </li>
           ))}
@@ -51,15 +53,15 @@ export default function Dashboard({ user }: { user: User }) {
       )}
 
       <h3>Your Reminders</h3>
-      {reminders.length === 0 ? <p>No reminders.</p> : (
+      {reminders.length === 0 ? (
+        <p className="empty-state">No reminders.</p>
+      ) : (
         <ul>
           {reminders.map((r, i) => (
             <li key={i}>
               <strong>{r.title}</strong>
-              <br />
-              {r.date} at {r.time}
-              <br />
-              <em>{r.notes}</em>
+              <em>{r.date} at {r.time}</em>
+              {r.notes && <em>{r.notes}</em>}
             </li>
           ))}
         </ul>

@@ -68,11 +68,10 @@ export default function Reminders({ userId }: { userId: number }) {
   }
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Create Reminder</h2>
 
       <input
-        className="reminder-input"
         placeholder="Reminder Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
@@ -80,7 +79,6 @@ export default function Reminders({ userId }: { userId: number }) {
 
       <label>Date:</label>
       <input
-        className="reminder-input"
         type="date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
@@ -88,14 +86,13 @@ export default function Reminders({ userId }: { userId: number }) {
 
       <label>Time:</label>
       <input
-        className="reminder-input"
         type="time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       />
 
+      <label>Notes (optional):</label>
       <textarea
-        className="reminder-input"
         placeholder="Notes (optional)"
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
@@ -103,24 +100,26 @@ export default function Reminders({ userId }: { userId: number }) {
 
       <button onClick={saveReminder}>Save Reminder</button>
 
-      {msg && <p style={{ marginTop: "10px" }}>{msg}</p>}
+      {msg && (
+        <p className={msg.includes("required") ? "error-message" : "success-message"}>
+          {msg}
+        </p>
+      )}
 
       <h3>Your Reminders</h3>
 
       {reminders.length === 0 ? (
-        <p>No reminders yet.</p>
+        <p className="empty-state">No reminders yet.</p>
       ) : (
         <ul>
           {reminders.map((reminder, i) => (
             <li key={i}>
               <strong>{reminder.title}</strong>
-              <br />
-              {reminder.date} at {reminder.time}
-              <br />
+              <em>{reminder.date} at {reminder.time}</em>
               {reminder.notes && <em>{reminder.notes}</em>}
-              <br />
-              <button onClick={() => deleteReminder(i)}>Delete</button>
-              <hr />
+              <button className="inline-btn" onClick={() => deleteReminder(i)}>
+                Delete
+              </button>
             </li>
           ))}
         </ul>

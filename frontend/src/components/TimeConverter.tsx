@@ -16,7 +16,7 @@ export default function TimeConverter() {
   }
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Time Converter</h2>
 
       <input
@@ -26,30 +26,34 @@ export default function TimeConverter() {
         onChange={(e) => setValue(e.target.value)}
       />
 
-      <div>
-        <label>From:</label>
-        <select value={fromUnit} onChange={(e) => setFromUnit(e.target.value)}>
-          <option value="seconds">Seconds</option>
-          <option value="minutes">Minutes</option>
-          <option value="hours">Hours</option>
-          <option value="days">Days</option>
-        </select>
-      </div>
+      <label>From:</label>
+      <select value={fromUnit} onChange={(e) => setFromUnit(e.target.value)}>
+        <option value="seconds">Seconds</option>
+        <option value="minutes">Minutes</option>
+        <option value="hours">Hours</option>
+        <option value="days">Days</option>
+      </select>
 
-      <div>
-        <label>To:</label>
-        <select value={toUnit} onChange={(e) => setToUnit(e.target.value)}>
-          <option value="seconds">Seconds</option>
-          <option value="minutes">Minutes</option>
-          <option value="hours">Hours</option>
-          <option value="days">Days</option>
-        </select>
-      </div>
+      <label>To:</label>
+      <select value={toUnit} onChange={(e) => setToUnit(e.target.value)}>
+        <option value="seconds">Seconds</option>
+        <option value="minutes">Minutes</option>
+        <option value="hours">Hours</option>
+        <option value="days">Days</option>
+      </select>
 
       <button onClick={convert}>Convert</button>
 
       {result && result.success && (
-        <p>{result.from} = {result.to}</p>
+        <div className="quote-box" style={{ marginTop: "20px" }}>
+          <p style={{ margin: 0, fontSize: "20px", fontWeight: "600" }}>
+            {result.from} = {result.to}
+          </p>
+        </div>
+      )}
+
+      {result && !result.success && (
+        <p className="error-message">{result.error || "Conversion failed"}</p>
       )}
     </div>
   );

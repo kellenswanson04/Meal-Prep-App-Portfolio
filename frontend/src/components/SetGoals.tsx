@@ -49,7 +49,7 @@ export default function SetGoals({ userId }: { userId: number }) {
   }
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Create a Goal</h2>
 
       <input
@@ -79,18 +79,22 @@ export default function SetGoals({ userId }: { userId: number }) {
 
       <button onClick={saveGoal}>Save Goal</button>
 
-      {msg && <p>{msg}</p>}
+      {msg && <p className="success-message">{msg}</p>}
 
       <h3>Saved Goals</h3>
-      <ul>
-        {goals.map((g, i) => (
-          <li key={i}>
-            <strong>{g.name}</strong> — {g.description}
-            <br />
-            <em>{g.timeframe}</em> — {g.calories} calories
-          </li>
-        ))}
-      </ul>
+      {goals.length === 0 ? (
+        <p className="empty-state">No goals saved yet.</p>
+      ) : (
+        <ul>
+          {goals.map((g, i) => (
+            <li key={i}>
+              <strong>{g.name}</strong>
+              <em>{g.description}</em>
+              <em>{g.timeframe} — {g.calories} calories</em>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

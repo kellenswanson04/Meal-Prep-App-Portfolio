@@ -73,10 +73,10 @@ export default function Motivation() {
   }
 
   return (
-    <div>
+    <div className="page-card">
       <h2>Motivational Quotes</h2>
 
-      <label>Category: </label>
+      <label>Category:</label>
       <select value={category} onChange={(e) => setCategory(e.target.value)}>
         <option value="random">Random</option>
         <option value="music">Music</option>
@@ -87,13 +87,13 @@ export default function Motivation() {
       </select>
 
       <button onClick={getQuote} disabled={loading}>
-        {loading ? "Generating..." : "Generate"}
+        {loading ? "Generating..." : "Generate Quote"}
       </button>
 
-      {error && <p style={{ color: "crimson" }}>Error: {error}</p>}
+      {error && <p className="error-message">Error: {error}</p>}
 
       {quote && (
-        <div className="quote-box" style={{ marginTop: "1rem" }}>
+        <div className="quote-box">
           <p>"{quote}"</p>
         </div>
       )}
